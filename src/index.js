@@ -23,15 +23,11 @@ const onError = () => {
 };
 
 const onLessThenTen = countries => {
-  // console.log('less then 10');
-  // console.log(countries);
   clearAll();
   makeListOfCountries(countries);
 };
 
 const onOneCountry = country => {
-  console.log('only 1');
-  console.log(country);
   clearAll();
   makeInfo(country[0]);
 };
@@ -48,10 +44,8 @@ const afterFetch = res => {
 
 const onInput = e => {
   const query = e.target.value.trim();
-  // console.log(query);
   if (!query) clearAll();
   else fetchCountries(query).then(afterFetch).catch(onError);
 };
 
 refs.inputField.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
-// fetchCountries('swi').then(console.log).catch(console.log);

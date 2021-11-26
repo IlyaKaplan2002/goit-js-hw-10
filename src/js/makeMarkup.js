@@ -13,19 +13,13 @@ export const makeInfo = country => {
   const { name, flag, languages, capital, population } = country;
 
   const languagesKeys = Object.keys(languages);
-  const languagesMarkup =
-    '<ul>' +
-    languagesKeys.reduce((acc, key) => {
-      acc += `<li>${languages[key]}</li>`;
-      return acc;
-    }, '') +
-    '</ul>';
+  const languagesMarkup = languagesKeys.map(key => languages[key]).join(', ');
 
   const markup = `
-  <img class="infoImage" src="${flag}"><h1>${name}</h1>
-  <p><span class='capitalLabel'>Capital</span><span class='capital'>${capital}</span></p>
-  <p><span class='populationLabel'>Capital</span><span class='population'>${population}</span></p>
-  <p><span class='languagesLabel'>Capital</span><span class='languages'>${languagesMarkup}</span></p>`;
+  <h1 class="infoTitle"><img class="infoImage" src="${flag}">${name}</h1>
+  <p><span class='label'>Capital: </span><span class='capital'>${capital}</span></p>
+  <p><span class='label'>Population: </span><span class='population'>${population}</span></p>
+  <p><span class='label'>Languages: </span><span class='languages'>${languagesMarkup}</span></p>`;
 
   refs.countryInfo.innerHTML = markup;
 };
