@@ -5,7 +5,6 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { refs } from './js/refs';
 import { makeInfo, makeListOfCountries } from './js/makeMarkup';
 
-// !test
 const DEBOUNCE_DELAY = 300;
 
 const clearAll = () => {
